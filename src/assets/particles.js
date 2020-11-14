@@ -1,7 +1,7 @@
 export let options = {
   background: {
     color: {
-      value: "#000000",
+      value: "#1e1e1e",
     },
   },
   fpsLimit: 100,
