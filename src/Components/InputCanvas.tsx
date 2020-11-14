@@ -3,11 +3,7 @@ import { Container, Row, Col } from "react-bootstrap";
 import { InputContext } from "../Context/Input";
 
 export const InputCanvas: FC = () => {
-  const { input, setInput } = useContext(InputContext);
-
-  useEffect(() => {
-    console.log(input);
-  }, [input]);
+  const { input } = useContext(InputContext);
 
   return (
     <Container>
