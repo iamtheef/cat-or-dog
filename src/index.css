@@ -1,10 +1,9 @@
-.background {
-  width: 100.5%;
-  height: 101.1%;
-  padding-left: 0;
-  margin: -8px;
-  opacity: 0.9;
-  position: absolute;
+.particles {
+  margin-bottom: -20px;
+}
+.canvas {
+  width: 100%;
+  min-height: 200%;
 }
 
 .main-form {

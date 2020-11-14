@@ -1,10 +1,13 @@
 import React, { FC } from "react";
-import cube from "../assets/cube.gif";
+import Particles from "react-tsparticles";
+import { options } from "../assets/particles";
 
 export const Background: FC = () => {
   return (
-    <div>
-      <img src={cube} className="background" />
-    </div>
+    <Particles
+      className="particles"
+      canvasClassName="canvas"
+      options={options}
+    />
   );
 };
