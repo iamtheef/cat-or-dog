@@ -1,5 +1,7 @@
-body {
-  /* overflow: hidden; */
+.predict-button {
+  width: auto;
+  display: block;
+  transform: translateY(1350%);
 }
 
 .monolog {
@@ -19,14 +21,11 @@ body {
 }
 
 #input-canvas {
-  max-width: 50%;
+  max-width: 70%;
   position: absolute;
-  margin-top: 45%;
-  -ms-transform: translateY(-50%);
-  transform: translateY(-50%);
-  margin-left: -30%;
+  margin-top: 20%;
+  margin-left: -40%;
   border-radius: 1%;
-
   box-shadow: 0px 0px 40px 40px #222222;
 }
 
@@ -42,22 +41,28 @@ body {
 }
 .canvas {
   display: block;
-
-  width: 100%;
-  min-height: 100%;
 }
 
 .main-form {
-  padding-right: 0;
   width: 75%;
-  margin: 0;
+  margin-left: auto;
   position: absolute;
-  top: 70%;
-  -ms-transform: translateY(-50%);
-  transform: translateY(-50%);
+  -ms-transform: translateY(850%);
+  transform: translateY(850%);
 }
 
-.upload-button {
-  padding-right: 0;
-  margin-right: 0;
+@media only screen and (max-width: 600px) {
+  .main-form {
+    margin-left: 10% !important;
+    font-size: 45px;
+  }
+  .predict-button {
+    margin-left: 13% !important;
+  }
+
+  #input-canvas {
+    margin-top: 80%;
+    max-width: 140%;
+    margin-left: -80%;
+  }
 }

@@ -7,6 +7,7 @@ import { InputProvider } from "./Context/Input";
 import { PredictionProvider } from "./Context/Prediction";
 import { InputCanvas } from "./Components/InputCanvas";
 import { TypingEffect } from "./Components/TypingEffect";
+import { PredictButton } from "./Components/PredictButton";
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
           <Container>
             <InputCanvas />
             <MainForm />
+            <PredictButton />
           </Container>
         </PredictionProvider>
       </InputProvider>
