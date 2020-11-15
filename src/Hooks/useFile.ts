@@ -1,9 +1,9 @@
 import { useState } from "react";
 
 export default (initialVal: any) => {
-  const [value, setValue] = useState(initialVal);
-  const handleChange = (e: any) => {
-    setValue(e.target.files[0]);
+  const [value, setValue] = useState<any>(initialVal);
+  const handleChange = (file: any) => {
+    setValue(file);
   };
   const reset = () => {
     setValue(undefined);

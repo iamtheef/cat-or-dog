@@ -24,24 +24,17 @@ export function InputProvider({ children }: Props) {
 
   const handleFile = (e: any) => {
     setFile(e.target.files[0]);
-    setInput(e.target.files[0].name);
+    setFilename(e.target.files[0].name);
+    setInput("");
     setIsLink(false);
   };
 
   const handleLink = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setFilename(FILE_PLACEHOLDER);
     resetFile();
+    setFilename(FILE_PLACEHOLDER);
     setInput(e.target.value);
     setIsLink(true);
   };
-
-  // const predict: IPrediction = (req: IRequest) => {
-  //   // if (!!file && !isLink) {
-  //   // }
-  //   // axios.post("localhost:4000/predict");
-  //   console.log(req);
-  //   return { success: true, message: "all good mate" };
-  // };
 
   return (
     <InputContext.Provider
