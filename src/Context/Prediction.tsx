@@ -1,5 +1,6 @@
 import React, { createContext, useState, useContext } from "react";
 import { InputContext } from "../Context/Input";
+import { ValidateRequest } from "../Utils/ValidateRequest";
 import axios from "axios";
 
 type Props = {
@@ -16,9 +17,10 @@ export const PredictionContext = createContext<any>(undefined);
 export function PredictionProvider({ children }: Props) {
   const [prediction, setPrediction] = useState(undefined);
   const { file, isLink, input } = useContext(InputContext);
+  let checkRequest = ValidateRequest({ file, isLink, input });
 
   const predict = () => {
-    console.log(file, isLink, input);
+    checkRequest = ValidateRequest({ file, isLink, input });
   };
 
   return (
@@ -27,6 +29,7 @@ export function PredictionProvider({ children }: Props) {
         prediction,
         setPrediction,
         predict,
+        checkRequest,
       }}
     >
       {children}

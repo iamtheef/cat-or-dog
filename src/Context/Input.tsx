@@ -6,12 +6,6 @@ type Props = {
   children: React.ReactNode;
 };
 
-interface IRequest {
-  input: string;
-  isLink: string;
-  file?: any;
-}
-
 export const InputContext = createContext<any>(undefined);
 
 export function InputProvider({ children }: Props) {
@@ -39,12 +33,13 @@ export function InputProvider({ children }: Props) {
   return (
     <InputContext.Provider
       value={{
-        handleLink,
-        handleFile,
         filename,
         input,
         file,
         isLink,
+        handleLink,
+        setIsLink,
+        handleFile,
       }}
     >
       {children}

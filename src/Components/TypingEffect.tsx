@@ -11,10 +11,18 @@ export const TypingEffect: FC = () => {
   };
 
   const talk_Machine___talk = async () => {
+    let countCommas = 0;
     for (let i = 0; i < txt.length; i++) {
       setText((prevText) => (prevText += txt.charAt(i)));
       if (txt.charAt(i) === ".") await sleep(520);
-      if (txt.charAt(i) === ",") await sleep(300);
+      if (txt.charAt(i) === "," && countCommas == 1) {
+        countCommas++;
+        await sleep(1200);
+      }
+      if (txt.charAt(i) === ",") {
+        countCommas++;
+        await sleep(300);
+      }
       await sleep(70);
     }
   };

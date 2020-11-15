@@ -1,7 +1,12 @@
+.message-board {
+  width: 60%;
+
+  transform: translateY(980%);
+  margin-left: 10%;
+}
+
 .predict-button {
-  width: auto;
-  display: block;
-  transform: translateY(1350%);
+  transform: translateY(1400%);
 }
 
 .monolog {
@@ -24,7 +29,7 @@
   max-width: 50%;
   position: absolute;
   margin-top: 18%;
-  margin-left: -40%;
+  margin-left: -35%;
   border-radius: 1%;
   box-shadow: 0px 0px 50px 50px #222222;
 }
@@ -43,9 +48,9 @@
 }
 
 .main-form {
-  margin-top: 11%;
+  margin-top: 8%;
   margin-bottom: -5%;
-  width: 90%;
+  width: 100%;
   margin-left: auto;
   position: relative;
   -ms-transform: translateY(860%);
@@ -61,8 +66,9 @@
 
 @media only screen and (max-width: 600px) {
   .main-form {
-    margin-left: 10% !important;
     font-size: 10px;
+    width: 80%;
+    margin-left: 10% !important;
   }
   .predict-button {
     margin-left: 13% !important;
