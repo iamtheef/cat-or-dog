@@ -1,6 +1,10 @@
+.spinner {
+  margin-bottom: -46% !important;
+  margin-left: 10%;
+}
+
 .message-board {
   width: 60%;
-
   transform: translateY(980%);
   margin-left: 10%;
 }
@@ -65,6 +69,11 @@
 }
 
 @media only screen and (max-width: 600px) {
+  .spinner {
+    margin-bottom: -107% !important;
+    margin-left: 33%;
+  }
+
   .main-form {
     font-size: 10px;
     width: 80%;

@@ -1,4 +1,4 @@
-interface IRequest {
+export interface IRequest {
   input: string;
   isLink: string;
   file?: any;

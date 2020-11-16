@@ -1,26 +1,47 @@
 import React, { createContext, useState, useContext } from "react";
 import { InputContext } from "../Context/Input";
-import { ValidateRequest } from "../Utils/ValidateRequest";
+import { ValidateRequest, IRequest } from "../Utils/ValidateRequest";
 import axios from "axios";
 
 type Props = {
   children: React.ReactNode;
 };
 
-interface IPrediction {
+type IPrediction = {
   success: boolean;
-  message: string;
-}
+  message: string | undefined;
+};
 
 export const PredictionContext = createContext<any>(undefined);
 
 export function PredictionProvider({ children }: Props) {
-  const [prediction, setPrediction] = useState(undefined);
+  const [prediction, setPrediction] = useState<IPrediction>({
+    success: false,
+    message: undefined,
+  });
   const { file, isLink, input } = useContext(InputContext);
-  let checkRequest = ValidateRequest({ file, isLink, input });
+  const [error, setError] = useState<string>("");
+  const [isLoading, setIsLoading] = useState<boolean>(false);
 
-  const predict = () => {
-    checkRequest = ValidateRequest({ file, isLink, input });
+  const predict = async () => {
+    let req: IRequest = { file, isLink, input };
+    let checkRequest = ValidateRequest(req);
+
+    if (checkRequest.isOK) {
+      setIsLoading(true);
+      axios
+        .post("http://localhost:4000/predict/", { file, isLink, input })
+        .then((res) => {
+          setIsLoading(false);
+          setPrediction(res.data);
+        })
+        .catch((e) => {
+          setIsLoading(false);
+          setError(e.message);
+        });
+    } else {
+      setError(checkRequest.errors[0]);
+    }
   };
 
   return (
@@ -29,7 +50,9 @@ export function PredictionProvider({ children }: Props) {
         prediction,
         setPrediction,
         predict,
-        checkRequest,
+        error,
+        setError,
+        isLoading,
       }}
     >
       {children}
