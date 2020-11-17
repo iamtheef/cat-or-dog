@@ -1,3 +1,17 @@
+.x-icon {
+  position: absolute;
+  font-size: 20px;
+  color: rgb(87, 86, 86);
+  padding-left: 51%;
+  z-index: 99 !important;
+  margin-top: 0.3%;
+  height: 1px;
+}
+.x-icon:hover {
+  color: rgb(126, 125, 125);
+  cursor: pointer;
+}
+
 .spinner {
   margin-bottom: -46% !important;
   margin-left: 10%;
@@ -69,6 +83,12 @@
 }
 
 @media only screen and (max-width: 600px) {
+  .x-icon {
+    padding-left: 56%;
+    margin-top: 1.2%;
+    font-size: 18px;
+  }
+
   .spinner {
     margin-bottom: -107% !important;
     margin-left: 33%;

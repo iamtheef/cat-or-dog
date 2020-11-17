@@ -1,6 +1,7 @@
 import React, { createContext, useState, useContext } from "react";
 import { InputContext } from "../Context/Input";
 import { ValidateRequest, IRequest } from "../Utils/ValidateRequest";
+import { uploadImg } from "../Utils/UploadImage";
 import axios from "axios";
 
 type Props = {
@@ -29,16 +30,29 @@ export function PredictionProvider({ children }: Props) {
 
     if (checkRequest.isOK) {
       setIsLoading(true);
-      axios
-        .post("http://localhost:4000/predict/", { file, isLink, input })
-        .then((res) => {
-          setIsLoading(false);
-          setPrediction(res.data);
-        })
-        .catch((e) => {
-          setIsLoading(false);
+      if (!isLink && !!file) {
+        try {
+          await uploadImg(file);
+        } catch (e) {
           setError(e.message);
-        });
+        }
+      } else {
+        axios
+          .post("http://localhost:4000/predict/", req)
+          .then((res) => {
+            if (res.status === 200) {
+              setIsLoading(false);
+              setPrediction(res.data);
+            } else {
+              setIsLoading(false);
+              setError(res.statusText.toLowerCase());
+            }
+          })
+          .catch((e) => {
+            setIsLoading(false);
+            setError(e.message);
+          });
+      }
     } else {
       setError(checkRequest.errors[0]);
     }

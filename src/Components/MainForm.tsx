@@ -10,9 +10,15 @@ import {
 import { InputContext } from "../Context/Input";
 
 export const MainForm: FC = () => {
-  const { handleLink, handleFile, filename, isLink, setIsLink } = useContext(
-    InputContext
-  );
+  const {
+    handleLink,
+    handleFile,
+    filename,
+    isLink,
+    setIsLink,
+    resetInput,
+    input,
+  } = useContext(InputContext);
 
   return (
     <div>
@@ -30,9 +36,12 @@ export const MainForm: FC = () => {
               File
             </Dropdown.Item>
           </DropdownButton>
-
+          <div className="x-icon" onClick={() => resetInput()}>
+            X
+          </div>
           <FormControl
             placeholder="Paste a link"
+            value={isLink ? input : ""}
             onChange={(e) => handleLink(e)}
           />
           <Form.File

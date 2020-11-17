@@ -5,13 +5,7 @@ import { Alert, Spinner, Col } from "react-bootstrap";
 export const MessageBoard: FC = () => {
   const { error, prediction, isLoading } = useContext(PredictionContext);
 
-  if (error.length > 0) {
-    return (
-      <Alert variant="danger" className="message-board">
-        {error}
-      </Alert>
-    );
-  } else if (isLoading) {
+  if (isLoading) {
     return (
       <Col>
         <Spinner animation="border" variant="light" className="spinner" />
@@ -21,6 +15,12 @@ export const MessageBoard: FC = () => {
     return (
       <Alert variant="success" className="message-board">
         {prediction.message === "1.0" ? "It's a dog!" : "It's a cat!"}
+      </Alert>
+    );
+  } else if (error.length > 0) {
+    return (
+      <Alert variant="danger" className="message-board">
+        {error}
       </Alert>
     );
   } else {
