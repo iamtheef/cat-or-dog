@@ -1,6 +1,6 @@
 import React, { createContext, useState } from "react";
-import useInput from "../Hooks/useInput";
-import useFile from "../Hooks/useFile";
+import { useInput } from "../Hooks/useInput";
+import { useFile } from "../Hooks/useFile";
 
 type Props = {
   children: React.ReactNode;
@@ -13,6 +13,7 @@ export function InputProvider({ children }: Props) {
 
   const [filename, setFilename] = useState(FILE_PLACEHOLDER);
   const [input, setInput, resetInput] = useInput("");
+  const [imgPreview, setImgPreview, resetImgPreview] = useInput("");
   const [isLink, setIsLink] = useState<boolean>(true);
   const [file, setFile, resetFile] = useFile(undefined);
 
@@ -20,7 +21,8 @@ export function InputProvider({ children }: Props) {
     setIsLink(false);
     setFile(e.target.files[0]);
     setFilename(e.target.files[0].name);
-    setInput(URL.createObjectURL(e.target.files[0]));
+    setInput(e.target.files[0].name);
+    setImgPreview(URL.createObjectURL(e.target.files[0]));
   };
 
   const handleLink = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -28,6 +30,7 @@ export function InputProvider({ children }: Props) {
     resetFile();
     setFilename(FILE_PLACEHOLDER);
     setInput(e.target.value);
+    resetImgPreview();
   };
 
   return (
@@ -37,6 +40,7 @@ export function InputProvider({ children }: Props) {
         input,
         file,
         isLink,
+        imgPreview,
         handleLink,
         setIsLink,
         handleFile,

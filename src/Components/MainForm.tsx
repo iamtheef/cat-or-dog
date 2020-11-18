@@ -36,10 +36,18 @@ export const MainForm: FC = () => {
               File
             </Dropdown.Item>
           </DropdownButton>
-          <div className="x-icon" onClick={() => resetInput()}>
+          <div
+            className="x-icon"
+            onClick={() => {
+              resetInput();
+              document.getElementById("form")?.focus();
+            }}
+          >
             X
           </div>
           <FormControl
+            style={{ color: "#808e7d" }}
+            id="form"
             placeholder="Paste a link"
             value={isLink ? input : ""}
             onChange={(e) => handleLink(e)}

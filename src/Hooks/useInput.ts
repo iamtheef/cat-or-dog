@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-export default (initialVal: string) => {
+export const useInput = (initialVal: string) => {
   const [value, setValue] = useState(initialVal);
   const handleChange = (v: string) => {
     setValue(v);

@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-export default (initialVal: any) => {
+export const useFile = (initialVal: Blob | undefined) => {
   const [value, setValue] = useState<any>(initialVal);
   const handleChange = (file: any) => {
     setValue(file);

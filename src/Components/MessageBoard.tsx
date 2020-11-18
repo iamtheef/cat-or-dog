@@ -1,4 +1,4 @@
-import React, { useContext, FC, useEffect } from "react";
+import React, { useContext, FC } from "react";
 import { PredictionContext } from "../Context/Prediction";
 import { Alert, Spinner, Col } from "react-bootstrap";
 
@@ -14,7 +14,7 @@ export const MessageBoard: FC = () => {
   } else if (prediction.success) {
     return (
       <Alert variant="success" className="message-board">
-        {prediction.message === "1.0" ? "It's a dog!" : "It's a cat!"}
+        {prediction.message === 1 ? "It's a dog!" : "It's a cat!"}
       </Alert>
     );
   } else if (error.length > 0) {

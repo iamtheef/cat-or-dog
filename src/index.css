@@ -1,10 +1,11 @@
 .x-icon {
   position: absolute;
   font-size: 20px;
-  color: rgb(87, 86, 86);
+  font-weight: bold;
+  color: rgb(66, 65, 65);
   padding-left: 51%;
   z-index: 99 !important;
-  margin-top: 0.3%;
+  margin-top: 0.5%;
   height: 1px;
 }
 .x-icon:hover {
@@ -13,14 +14,14 @@
 }
 
 .spinner {
-  margin-bottom: -46% !important;
+  margin-bottom: -47% !important;
   margin-left: 10%;
 }
 
 .message-board {
   width: 60%;
   transform: translateY(980%);
-  margin-left: 10%;
+  margin-left: 13%;
 }
 
 .predict-button {
@@ -35,8 +36,8 @@
 }
 
 .text {
-  font-size: 22px;
-  font-family: "Big Shoulders Stencil Text", cursive;
+  font-size: 15px;
+  font-family: "Cousine", monospace;
   margin-top: 15px;
   vertical-align: center;
   text-align: center;
@@ -73,6 +74,7 @@
   position: relative;
   -ms-transform: translateY(860%);
   transform: translateY(860%);
+  color: red;
 }
 
 .toggle {
@@ -83,6 +85,10 @@
 }
 
 @media only screen and (max-width: 600px) {
+  .message-board {
+    width: 50%;
+    margin-left: 30%;
+  }
   .x-icon {
     padding-left: 56%;
     margin-top: 1.2%;
@@ -95,12 +101,11 @@
   }
 
   .main-form {
-    font-size: 10px;
-    width: 80%;
-    margin-left: 10% !important;
+    width: 90%;
+    margin-left: 5% !important;
   }
   .predict-button {
-    margin-left: 13% !important;
+    margin-left: 7% !important;
   }
 
   #input-canvas {

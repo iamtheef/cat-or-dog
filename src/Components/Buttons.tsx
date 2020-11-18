@@ -1,5 +1,5 @@
 import React, { FC, useContext } from "react";
-import { Button, Row, Col } from "react-bootstrap";
+import { Button, Row } from "react-bootstrap";
 import { PredictionContext } from "../Context/Prediction";
 import { MessageBoard } from "./MessageBoard";
 

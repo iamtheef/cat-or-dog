@@ -3,13 +3,13 @@ import { Row, Col } from "react-bootstrap";
 import { InputContext } from "../Context/Input";
 
 export const InputCanvas: FC = () => {
-  const { input } = useContext(InputContext);
+  const { input, isLink, imgPreview } = useContext(InputContext);
 
   return (
     <Row>
       <Col></Col>
       <Col>
-        <img src={input} alt="" id="input-canvas" />
+        <img src={isLink ? input : imgPreview} alt="" id="input-canvas" />
       </Col>
     </Row>
   );

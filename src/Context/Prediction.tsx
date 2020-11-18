@@ -36,23 +36,24 @@ export function PredictionProvider({ children }: Props) {
         } catch (e) {
           setError(e.message);
         }
-      } else {
-        axios
-          .post("http://localhost:4000/predict/", req)
-          .then((res) => {
-            if (res.status === 200) {
-              setIsLoading(false);
-              setPrediction(res.data);
-            } else {
-              setIsLoading(false);
-              setError(res.statusText.toLowerCase());
-            }
-          })
-          .catch((e) => {
-            setIsLoading(false);
-            setError(e.message);
-          });
       }
+
+      axios
+        .post("http://localhost:4000/predict/", req)
+        .then((res) => {
+          if (res.status === 200) {
+            console.log(res.data);
+            setPrediction(res.data);
+            setIsLoading(false);
+          } else {
+            setError(res.statusText.toLowerCase());
+            setIsLoading(false);
+          }
+        })
+        .catch((e) => {
+          setIsLoading(false);
+          setError(e.message);
+        });
     } else {
       setError(checkRequest.errors[0]);
     }
