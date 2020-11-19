@@ -42,7 +42,6 @@ export function PredictionProvider({ children }: Props) {
         .post("http://localhost:4000/predict/", req)
         .then((res) => {
           if (res.status === 200) {
-            console.log(res.data);
             setPrediction(res.data);
             setIsLoading(false);
           } else {

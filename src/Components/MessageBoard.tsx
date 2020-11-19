@@ -14,7 +14,7 @@ export const MessageBoard: FC = () => {
   } else if (prediction.success) {
     return (
       <Alert variant="success" className="message-board">
-        {prediction.message === 1 ? "It's a dog!" : "It's a cat!"}
+        {`It's a ${prediction.message}!`}
       </Alert>
     );
   } else if (error.length > 0) {
