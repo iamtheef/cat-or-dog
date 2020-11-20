@@ -1,7 +1,7 @@
 export interface IRequest {
   input: string;
   isLink: string;
-  file?: any;
+  file?: Blob;
 }
 
 interface ValidationRepsonse {

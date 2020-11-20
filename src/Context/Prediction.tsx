@@ -2,7 +2,7 @@ import React, { createContext, useState, useContext } from "react";
 import { InputContext } from "../Context/Input";
 import { ValidateRequest, IRequest } from "../Utils/ValidateRequest";
 import { uploadImg } from "../Utils/UploadImage";
-import axios from "axios";
+import { client } from "../Utils/axios";
 
 type Props = {
   children: React.ReactNode;
@@ -38,8 +38,8 @@ export function PredictionProvider({ children }: Props) {
         }
       }
 
-      axios
-        .post("http://localhost:4000/predict/", req)
+      client
+        .post("/predict/", req)
         .then((res) => {
           if (res.status === 200) {
             setPrediction(res.data);

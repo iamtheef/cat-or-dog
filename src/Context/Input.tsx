@@ -17,12 +17,14 @@ export function InputProvider({ children }: Props) {
   const [isLink, setIsLink] = useState<boolean>(true);
   const [file, setFile, resetFile] = useFile(undefined);
 
-  const handleFile = (e: any) => {
-    setIsLink(false);
-    setFile(e.target.files[0]);
-    setFilename(e.target.files[0].name);
-    setInput(e.target.files[0].name);
-    setImgPreview(URL.createObjectURL(e.target.files[0]));
+  const handleFile = (e: React.ChangeEvent<HTMLInputElement>) => {
+    if (e.target.files) {
+      setIsLink(false);
+      setFile(e.target.files[0]);
+      setFilename(e.target.files[0].name);
+      setInput(e.target.files[0].name);
+      setImgPreview(URL.createObjectURL(e.target.files[0]));
+    }
   };
 
   const handleLink = (e: React.ChangeEvent<HTMLInputElement>) => {
