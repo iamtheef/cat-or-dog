@@ -1,28 +1,21 @@
 import React from "react";
-import "./App.css";
 import { Background } from "./Components/Background";
-import { MainForm } from "./Components/MainForm";
-import { Container } from "react-bootstrap";
-import { InputProvider } from "./Context/Input";
-import { PredictionProvider } from "./Context/Prediction";
-import { InputCanvas } from "./Components/InputCanvas";
 import { TypingEffect } from "./Components/TypingEffect";
-import { Buttons } from "./Components/Buttons";
+import { MainRoom } from "./Components/MainRoom";
+import { Info } from "./Components/Info";
+import { Switch, HashRouter, Route } from "react-router-dom";
 
 function App() {
   return (
     <div className="App">
       <Background />
       <TypingEffect />
-      <InputProvider>
-        <PredictionProvider>
-          <Container>
-            <InputCanvas />
-            <MainForm />
-            <Buttons />
-          </Container>
-        </PredictionProvider>
-      </InputProvider>
+      <HashRouter>
+        <Switch>
+          <Route exact path="/" component={MainRoom} />
+          <Route exact path="/info" component={Info} />
+        </Switch>
+      </HashRouter>
     </div>
   );
 }
